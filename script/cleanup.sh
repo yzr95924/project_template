@@ -1,13 +1,13 @@
 #!/bin/bash
 if [ -d "bin" ]; then
 echo "clean the executable output directory"
-rm -rf bin
+rm -rf bin/*
 echo "Done!"	 
 fi
 
 if [ -d "lib" ]; then 
 echo "clean the library output directory"
-rm -rf lib
+rm -rf lib/*
 echo "Done!"
 fi
 
