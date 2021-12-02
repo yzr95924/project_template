@@ -9,14 +9,13 @@ include_directories(${Boost_INCLUDE_DIRS} ../include)
 link_directories(${Boost_LIBRARY_DIRS} ../lib)
 
 
-set(CMAKE_BUILD_TYPE "Release")
-#set(CMAKE_BUILD_TYPE "Debug")
-set(CMAKE_C_FLAGS_DEBUG "-Wall -std=c17 -g -ggdb -g2") 
-set(CMAKE_CXX_FLAGS_DEBUG "-Wall -std=c++17 -g -ggdb -g2 -fsanitize=leak -fno-omit-frame-pointer")
-#set(CMAKE_CXX_FLAGS_DEBUG "-Wall -std=c++17 -g -ggdb -g2 -fno-omit-frame-pointer")
-set(CMAKE_C_FLAGS_RELEASE "-O3 -std=c17") 
-set(CMAKE_CXX_FLAGS_RELEASE "-O3 -std=c++17")
-set(CMAKE_MODULE_PATH /usr/share/cmake-3.10/Modules/)
+# set(CMAKE_BUILD_TYPE "Release")
+set(CMAKE_BUILD_TYPE "Debug")
+set(CMAKE_C_FLAGS_DEBUG "-Wall -g -ggdb") 
+set(CMAKE_C_FLAGS_RELEASE "-O3 -Wall")
+set(CMAKE_CXX_FLAGS_DEBUG "-Wall -g -ggdb -fsanitize=address -O0 -fno-omit-frame-pointer")
+#set(CMAKE_CXX_FLAGS_DEBUG "-Wall -g -ggdb") # for gdb, for valgrind
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Wall")
 
 SET (CMAKE_C_COMPILER "/usr/bin/clang")
 SET (CMAKE_CXX_COMPILER "/usr/bin/clang++")
@@ -25,3 +24,5 @@ SET (CMAKE_LINKER "/usr/bin/llvm-ld")
 SET (CMAKE_NM "/usr/bin/llvm-nm")
 SET (CMAKE_OBJDUMP "/usr/bin/llvm-objdump")
 SET (CMAKE_RANLIB "/usr/bin/llvm-ranlib")
+
+add_subdirectory(app)

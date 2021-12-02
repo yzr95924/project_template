@@ -1,6 +1,9 @@
-.vscode/
 build/
+dependent-package/
+.vscode/
 bin/
 lib/
 test*
 ThirdPartyLib/
+report
+log
