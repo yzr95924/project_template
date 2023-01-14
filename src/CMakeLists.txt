@@ -1,4 +1,4 @@
-find_package(Boost 1.36.0 REQUIRED COMPONENTS thread system serialization)
+find_package(Boost)
 
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
@@ -8,21 +8,19 @@ endif()
 include_directories(${Boost_INCLUDE_DIRS} ../include)
 link_directories(${Boost_LIBRARY_DIRS} ../lib)
 
-
-# set(CMAKE_BUILD_TYPE "Release")
-set(CMAKE_BUILD_TYPE "Debug")
-set(CMAKE_C_FLAGS_DEBUG "-Wall -g -ggdb") 
+set(CMAKE_C_FLAGS_DEBUG "-O0 -Wall -g -ggdb3") 
+set(CMAKE_CXX_FLAGS_DEBUG "-O0 -Wall -g -ggdb3 -fsanitize=address -fno-omit-frame-pointer")
+#set(CMAKE_CXX_FLAGS_DEBUG "-O0 -Wall -g -ggdb3") # for gdb, for valgrind
 set(CMAKE_C_FLAGS_RELEASE "-O3 -Wall")
-set(CMAKE_CXX_FLAGS_DEBUG "-Wall -g -ggdb -fsanitize=address -O0 -fno-omit-frame-pointer")
-#set(CMAKE_CXX_FLAGS_DEBUG "-Wall -g -ggdb") # for gdb, for valgrind
 set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Wall")
 
-SET (CMAKE_C_COMPILER "/usr/bin/clang")
-SET (CMAKE_CXX_COMPILER "/usr/bin/clang++")
-SET (CMAKE_AR "/usr/bin/llvm-ar")
-SET (CMAKE_LINKER "/usr/bin/llvm-ld")
-SET (CMAKE_NM "/usr/bin/llvm-nm")
-SET (CMAKE_OBJDUMP "/usr/bin/llvm-objdump")
-SET (CMAKE_RANLIB "/usr/bin/llvm-ranlib")
+# if use clang
+set(CMAKE_C_COMPILER "/usr/bin/clang")
+set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
+set(CMAKE_AR "/usr/bin/llvm-ar")
+set(CMAKE_LINKER "/usr/bin/llvm-ld")
+set(CMAKE_NM "/usr/bin/llvm-nm")
+set(CMAKE_OBJDUMP "/usr/bin/llvm-objdump")
+set(CMAKE_RANLIB "/usr/bin/llvm-ranlib")
 
 add_subdirectory(app)
