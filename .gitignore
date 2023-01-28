@@ -32,9 +32,9 @@
 *.app
 
 build/
-dependent-package/
-.vscode/
 bin/
 lib/
+dependent-package/
+.vscode/
 report
 log

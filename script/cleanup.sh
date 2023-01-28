@@ -1,7 +1,7 @@
 #!/bin/bash
 if [ -d "bin" ]; then
 echo "clean the executable output directory"
-rm -rf bin
+rm -rf bin/*
 echo "Done!"	 
 fi
 
@@ -16,4 +16,3 @@ echo "clean the build directory"
 rm -rf build
 echo "Done!"
 fi
-
