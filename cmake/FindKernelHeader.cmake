@@ -17,6 +17,7 @@ message(STATUS "Kernel headers: ${KERNEL_SOURCE_DIR}")
 if (KERNEL_SOURCE_DIR)
     set(KERNEL_HEADER_INCLUDE
         ${KERNEL_SOURCE_DIR}/include
+        ${KERNEL_SOURCE_DIR}/arch/x86/include/generated
         ${KERNEL_SOURCE_DIR}/arch/x86/include
         CACHE PATH "Kernel headers include dirs"
     )
