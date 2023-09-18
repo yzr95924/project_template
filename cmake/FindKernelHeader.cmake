@@ -9,6 +9,7 @@ execute_process(
 find_path(KERNEL_SOURCE_DIR
     include/linux/user.h
     PATHS /usr/src/linux-headers-${KERNEL_RELEASE_VERSION}
+    PATHS /usr/src/kernels/${KERNEL_RELEASE_VERSION}
 )
 
 message(STATUS "Kernel release: ${KERNEL_RELEASE_VERSION}")
